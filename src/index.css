@@ -1,0 +1,12 @@
+* {
+  font-family: 'Proxima Nova', sans-serif;
+}
+:root {
+  color-scheme: light dark;
+}
+body {
+  margin: 0;
+  height: 100vh;
+  display: grid;
+  place-content: center;
+}
