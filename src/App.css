@@ -1,8 +1,117 @@
 main {
   text-align: center;
-  border: 1px solid #fff;
   aspect-ratio: 9/16;
   width: 100vw;
-  max-width: 375px;
+  height: 100vh;
   border-radius: 5px;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+}
+
+.wrapper {
+  position: relative;
+}
+
+.item {
+  scroll-snap-align: center;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.player {
+  width: 62px;
+  height: 62px;
+  background-color: transparent;
+  opacity: 0.8;
+  border: none;
+  background-image: url('./assets/icons/play.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  position: absolute;
+  inset: 0;
+  margin: auto;
+}
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  position: absolute;
+  right: 8px;
+  bottom: 100px;
+  height: 200px;
+  z-index: 2;
+}
+
+.action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #fff;
+  margin-bottom: 5px;
+  background-color: transparent;
+  border: 0;
+}
+
+footer {
+  position: absolute;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 100%;
+  bottom: 0;
+  z-index: 1;
+  text-align: left;
+  font-size: 13px;
+  padding: 10px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 0%, rgba(255, 255, 255, 0) 60%);
+}
+
+footer .author {
+  font-weight: bold;
+  font-size: 17px;
+}
+
+footer .description-text {
+  max-width: 275px;
+  text-wrap: pretty;
+  margin-top: 5px;
+  margin-bottom: 0;
+}
+
+.album {
+  background-image: url('./assets/album.png');
+  background-size: cover;
+  height: 50px;
+  width: 50px;
+  animation: rotation 3s infinite linear;
+  display: grid;
+  place-content: center;
+  margin-right: 17px;
+}
+
+.album-image {
+  width: 40px;
+  border-radius: 50%;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.song-ticker {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.hidden {
+  opacity: 0;
 }

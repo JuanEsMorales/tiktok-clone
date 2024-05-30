@@ -1,11 +1,14 @@
 import { useState } from 'react'
 import './App.css'
+import FeedVideos from './components/FeedVideos'
 
 function App() {
 
   return (
     <>
-      <main>Tiktok Clone</main>
+      <main>
+        <FeedVideos />
+      </main>
     </>
   )
 }
