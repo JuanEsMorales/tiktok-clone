@@ -40,7 +40,7 @@ main {
   position: absolute;
   right: 8px;
   bottom: 100px;
-  height: 200px;
+  height: 250px;
   z-index: 2;
 }
 
@@ -53,6 +53,17 @@ main {
   margin-bottom: 5px;
   background-color: transparent;
   border: 0;
+}
+
+.icon-tabler-circle-plus {
+  position: absolute;
+  bottom: -15px;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
 }
 
 footer {

@@ -1,7 +1,7 @@
-export default function AlbumDisk({ albumImage }) {
+export default function AlbumDisk({ avatar }) {
   return (
     <div className="album">
-      <img src={albumImage} alt="album" className="album-image" />
+      <img src={avatar} alt="album" className="album-image" />
     </div>
   )
 } 

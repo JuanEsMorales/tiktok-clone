@@ -1,8 +1,9 @@
 import { Comment } from "./icons/Comment";
 import { Heart } from "./icons/Heart";
+import PlusIcon from "./icons/Plus";
 import { Share } from "./icons/Share";
 
-export default function VideoPlayerActions({ likes, shares, comments }) {
+export default function VideoPlayerActions({ likes, shares, comments, avatar, username }) {
   const handleLike = () => {
     alert('Like')
   }
@@ -15,6 +16,10 @@ export default function VideoPlayerActions({ likes, shares, comments }) {
 
   return (
     <aside className="actions">
+      <button className="action" style={{ position: 'relative', marginBottom: '15px'}}>
+        <img className="avatar" src={avatar} alt={username} />
+        <PlusIcon />
+      </button>
       <button className="action" onClick={handleLike}>
         <Heart />
         <span title="Likes">{likes}</span>

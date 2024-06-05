@@ -3,10 +3,36 @@ import { useRef } from "react"
 import clsx from "clsx"
 import VideoPlayerActions from "./VideoPlayerActions"
 import VideoDescription from "./VideoDescription"
+import { useEffect } from "react"
 
-export default function VideoPlayer({ src, author, description, albumImage, likes, shares, comments, songTitle }) {
+
+export default function VideoPlayer({ src, username, description, avatar, likes, shares, comments, songTitle }) {
   const [isPlaying, setIsPlaying] = useState(false)
-  const video = useRef()
+  const video = useRef(null)
+  const options = {
+    root: document.querySelector("main"),
+    rootMargin: "0px",
+    threshold: 0.8,
+  };
+  
+  let observer = new window.IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+          entry.target.play();
+          setIsPlaying(true);
+      } else {
+          entry.target.pause();
+          setIsPlaying(false);
+      }
+  });
+  }, options);
+
+  useEffect(() => {
+    let currentVideo = video.current
+    if (currentVideo) {
+      observer.observe(currentVideo)
+    }
+  }, [])
   const handleClick = () => {
     if (isPlaying) {
       video.current.pause()
@@ -32,8 +58,8 @@ export default function VideoPlayer({ src, author, description, albumImage, like
         onClick={handleClick}
       />
       <button className={classes} onClick={handleClick}></button>
-      <VideoPlayerActions likes={likes} shares={shares} comments={comments} />
-      <VideoDescription author={author} description={description} albumImage={albumImage} songTitle={songTitle} />
+      <VideoPlayerActions likes={likes} shares={shares} comments={comments} avatar={avatar} username={username} />
+      <VideoDescription username={username} description={description} avatar={avatar} songTitle={songTitle} />
     </div>
   )
 }
